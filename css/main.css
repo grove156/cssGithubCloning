@@ -1,5 +1,64 @@
-body {
+/*COMMON*/
+.body__container {
     /*font적용*/
     font-family: 'Roboto', sans-serif;
-    font-size: 100px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
 }
+
+/*BTN*/
+.btn {
+    height: 34px;
+    background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+    border: 1px solid #d5d5d5;
+    border-radius: 4px;
+    display: inline-flex; /*inline-flex로 컨테이너 디스플레이 선언*/
+    align-items: center; /*좌우정렬*/
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight:500;
+    line-height: 1.5;
+    cursor: pointer;
+    box-sizing: border-box; /*padding이 넘치지 않도록 박스 사이즈 = 원래사이즈-패딩사이즈*/
+    position: relative;
+}
+
+.btn:hover::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.07);
+}
+
+.btn.btn--primary {
+    border: 1px solid #65b836;
+    color: #fff;
+    background: #55a532 linear-gradient(#91dd70, #55ae2e);
+}
+/*INPUT*/
+.input--text {
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    /*box-shadow 의 단축속성 inset- 안쪽으로 그림자 생성, 1px-x축 밑으로 1px, 2px-y축 오른쪽으로 1px, 1px-블러처리 1px, 컬러*/
+    box-shadow: inset 1px 2px 1px rgba(0,0,0,0.15); 
+    font-size: 16px;
+  }
+  
+  .input--text:focus {
+    border-color: #51a7e8;
+    /*box-shadow는 콤마(,)로 구분지어서 여러개 사용가능*/
+    box-shadow: inset 1px 2px 1px rgba(0,0,0,0.15), 
+                0 0 5px rgba(81, 167, 232, 0.5);
+  }
+    /*Vendor Prefix - 웹 표준기술은 아니지만 브라우저마다 고유의 특정한 랜더링 방식*/
+  .input--text::-webkit-input-placeholder {color: #cacaca;} /*chrome*/
+  .input--text::-ms-input-placeholder {color: #cacaca;} /*microsoft*/
+  .input--text::-moz-input-placeholder {color: #cacaca;} /*mozilla*/
