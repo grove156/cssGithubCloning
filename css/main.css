@@ -7,6 +7,10 @@
     color: #333;
 }
 
+a {
+    text-decoration: none; /*a태그의 및줄을 제거하기 위해*/
+}
+
 /*BTN*/
 .btn {
     height: 34px;
@@ -22,9 +26,10 @@
     cursor: pointer;
     box-sizing: border-box; /*padding이 넘치지 않도록 박스 사이즈 = 원래사이즈-패딩사이즈*/
     position: relative;
+    color: #333;
 }
 
-.btn:hover::before {
+.btn:hover::before {/*가상선택자 before를 사용하는 이유는 btn--primary에도 hover가 적용되기를 바라기 때문에*/
     content:"";
     position: absolute;
     top: 0;
@@ -62,3 +67,114 @@
   .input--text::-webkit-input-placeholder {color: #cacaca;} /*chrome*/
   .input--text::-ms-input-placeholder {color: #cacaca;} /*microsoft*/
   .input--text::-moz-input-placeholder {color: #cacaca;} /*mozilla*/
+
+/*FLOAT CLEARFIX*/
+.clearfix::after { /*플롯으로 만들고나서 가상요소 선택자 after를 이용해서 clear선언 해주면 float을 멈출 수 있다.*/
+    content: "";
+    clear: both;
+    display:block;
+}
+
+.float--left {
+    float: left;
+}
+
+.float--right {
+    float: right;
+}
+
+/*HEADER*/
+header {
+    border-bottom: 1px solid rgba(0,0,0,0.75);
+    box-shadow: 0 0 5px rgba(0,0,0,0.75);
+    background: #fff;
+}
+
+header .inner {
+    height: 78px;
+    max-width: 980px;
+    margin: 0 auto; /*margin: auto는 자동정렬해줌 margin : auto를 사용하기 위해서는 꼭 width값이 정의되어 있어야함*/
+
+}
+
+header .menu-group {
+    display: flex;
+    align-items: center;
+    height: 100%;/*width, height는 %의 단위를 사용할 경우 부모요소의 넓이, 높이만큼의 퍼센트를 의미한다*/
+}
+
+header .logo{
+    margin-right: 10px;
+}
+
+header .logo a {
+    background: url("../img/logo.svg");
+    width: 32px;
+    height: 32px;
+    display: block;
+    text-indent: -9999px;
+}
+
+header .logo a:hover {
+    background: url("../img/logo_on.svg");
+}
+
+header .main-menu {
+    display: flex;
+}
+
+header .main-menu li a {
+    display: block; /*a테그는 인라인 요소이기 때문에 block요소로 바꾸지 않으면 padding이 적용안됨*/
+    padding: 10px;
+    color: #3c4146;
+}
+
+header .main-menu li a:hover {
+    color: #4078c0;
+}
+
+header .sign-group {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    
+}
+
+header .btn-group {
+    display: flex;
+    order: 2;
+}
+
+header .btn-group .sign-in {
+    margin-right: 4px;
+}
+
+header #search-form {
+    margin-right: 12px;
+    order: 1;
+}
+
+header #search {
+    width: 160px;
+    font-size: 14px;
+}
+
+#search + [type="submit"]{ /*+기호는 #search의 다음 요소를 의미한다 즉, 이 선택자는 #search가아닌 다음 html의 요소를 선택한다*/
+    display: none;
+}
+
+header .sub-menu {
+    display: flex;
+    margin-right: 10px;
+}
+
+header .sub-menu li a {
+    display: block;
+    padding: 8px;
+    font-size: 13px;
+    color: #3c4146;
+}
+
+header .sub-menu li a:hover {
+    color: #4078c0;
+}
