@@ -17,7 +17,7 @@ a {
     background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
     border: 1px solid #d5d5d5;
     border-radius: 4px;
-    display: inline-flex; /*inline-flex로 컨테이너 디스플레이 선언*/
+    display: flex; /*flex로 컨테이너 디스플레이 선언*/
     align-items: center; /*좌우정렬*/
     padding: 0 12px;
     font-size: 14px;
@@ -211,6 +211,18 @@ header .sub-menu li a:hover {
     color: #4078c0;
 }
 
+#toggle-btn {
+    display: none;
+    background: url("../img/toggle-btn.svg");
+    width: 18px;
+    height: 24px;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    cursor: pointer;
+    text-indent: -9999px;
+}
+
 /*VISUAL*/
 .section--visual {
     background-image: url("../img/bg.jpg");
@@ -380,7 +392,7 @@ header .sub-menu li a:hover {
 #map {
     width: 100%;
     height: 400px;
-    margin-top: 40px;
+    margin: 40px 0;
     border: 1px solid rgba(0,0,0,.2);
     border-bottom: none;
     box-shadow: 0 0 20px rgba(0,0,0,.2);
@@ -466,4 +478,84 @@ footer .logo {
 footer .logo:hover svg {
     fill: #4078c0; /*svg코드로 저장되엇기 때문에 css로 제어가 가능하며 fill이라는 요소는 색을 채우는 의미임*/ 
 }
+
+/*MEDIA*/ 
+/*@media 미디어 타입 and (조건 ex.max-width, min-width)*/
+@media screen and (max-width: 1024px){
+    
+    header.section .inner {/*우선순위 점수가 덮어씌우기를 위해선 위에 선언된 것보다 점수가 높아야함*/
+        max-width: none;
+        height: auto;
+        padding: 0 20px;
+    }
+
+    header .menu-group {
+        float: none;
+        display: block;
+    }
+
+    header .sign-group {
+        float: none;
+        display: block;
+        padding: 10px 0 20px;
+    }
+
+    header .btn-group {
+        display: block;
+    }
+
+    header .btn-group .btn {
+        justify-content: center;
+    }
+
+    header .btn-group .sign-in {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+
+    header #search-form {
+        margin-top: 12px;
+        margin-right: 0;
+    }
+
+    header #search {
+        text-align: center;
+        width: 100%;
+        height: 42px;
+    }
+
+    header .sub-menu {
+        margin-top: 12px;
+        margin-right: 0;
+        justify-content: center;
+    }
+
+    header .main-menu {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    header .main-menu li {
+        border-top: 1px solid #e5e5e5;
+    }
+
+    header .main-menu li a {
+        padding: 16px 0;
+    }
+
+    header .toggle {
+        display: none; 
+     }
+
+    header .toggle.on {
+        display: block;
+    }
+    
+    header .logo {
+        padding: 12px 0;
+    }
+
+    #toggle-btn {
+        display: block;
+    }
 }
