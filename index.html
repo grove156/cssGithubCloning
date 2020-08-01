@@ -40,6 +40,11 @@
     <link rel="stylesheet" href="css/reset.css"> <!--브라우저 reset적용 호출을 먼저 하는것이 좋다 override방지!-->
     <link rel="stylesheet" href="css/main.css">
 
+    <!--@media 미디어 타입 and (조건 ex.max-width, min-width)-->
+    <!--@media screen and (max-width: 1024px) 과 동일하게 media안에 선언해주면 된다.-->
+    <link rel="stylesheet" media="screen and (max-width: 1024px)" href="css/main_medium.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/main_small.css">
+
     <!--defer는 html을 다 읽고나서 src를 불러오라는 의미-->
     <script defer src="main.js"></script>
 </head>
